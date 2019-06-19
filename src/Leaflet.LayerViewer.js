@@ -1272,7 +1272,7 @@ var layerviewer = (function ($) {
 			
 			// Add map scale if required
 			if (_settings.enableScale) {
-				L.control.scale({maxWidth: 300, position: 'bottomright'}).addTo(_map);
+				L.control.scale({maxWidth: 300, position: 'bottomleft'}).addTo(_map);
 			}
 		},
 		
