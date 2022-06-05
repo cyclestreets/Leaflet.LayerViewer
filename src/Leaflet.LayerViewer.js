@@ -502,14 +502,15 @@ var layerviewer = (function ($) {
 			// Get the home page HTML and overwrite the content
 			var html = $('#home').html();
 			html = '<div id="protection">' + html + '</div>';
+			html = html.replace ('{$login}', '<div id="login"></div>');
 			$('main').html (html);
 			
 			// Add a password form
-			$('#protection').append ('<p id="loginprompt">If you have been given a login password, please enter it below.</p>');
+			$('#login').append ('<p id="loginprompt">If you have been given a login password, please enter it below.</p>');
 			var form = $('<form id="password" method="post"></form>');
 			form.append('<input name="password" type="password" required="required" placeholder="Password" size="20" autofocus="autofocus" />');
 			form.append('<input type="submit" value="Submit" />');
-			$('#protection').append (form);
+			$('#login').append (form);
 			
 			// If the form is submitted, validate the value
 			$('#password').submit (function(event) {
