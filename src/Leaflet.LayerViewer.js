@@ -2094,6 +2094,13 @@ var layerviewer = (function ($) {
 				onEachFeature: function (feature, layer) {
 					totalItems++;
 					
+					// Remove icon if present in data
+					if (iconField) {
+						if (feature.properties.hasOwnProperty(iconField)) {
+							delete feature.properties[iconField];
+						}
+					}
+					
 					// Determine the popup content
 					var popupContent = layerviewer.renderDetails (popupHtml, feature, layer, layerId);
 					layer.bindPopup(popupContent, {autoPan: false, className: layerId});
